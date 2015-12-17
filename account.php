@@ -26,7 +26,7 @@ include "forms/header.php";
 include "forms/navform.php";
 include "forms/account_menubar.php";
 echo '<div class="content_area">';
-echo '<h2>Your Attendace Record</h2>';
+echo '<h2>Your Attendance Record</h2>';
 if(empty($badgeid)) 
 {
     echo '<p>You do not seem to have a badge.  Please talk to your IT administrator to get one.</p>';

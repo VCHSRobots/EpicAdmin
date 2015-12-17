@@ -25,6 +25,6 @@ RenderParams($param_list);
 echo '<input class="inputform_submit_button" type="submit" value="Add User">' . "\n";
 echo '</form></div>' . "\n";
 
-echo 'Badge IDs must be in the form of "A000", where A is an alpha character and 0 are ditits.';
+echo 'Badge IDs must be in the form of "A000", where A is an alpha character and 0 are digits.';
 echo '</div' . "\n";
 ?>

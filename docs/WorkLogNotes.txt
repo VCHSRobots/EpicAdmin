@@ -102,8 +102,6 @@ Worklog for admin.epicscouts.org
 59. Added "Corrections" feature.
 60. Pushed changes, deployed code.
 
--------------- Tuesday, 2/10/15
-61. Added some more reporting on corrections...
 
 
 

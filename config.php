@@ -9,25 +9,26 @@
 // Created: 12/29/14 DLB
 // --------------------------------------------------------------------
 
-// This version is for Dal's development machine on Windows.
+// This version is for the actual admin.epicscouts.org website!  
+// Be Careful NOT TO OVERWITE!!!
 
 $config = array(
     "db" => array(
             "host" => "localhost",
             "dbname" => "EpicAdmin",
-            "username" => "Dalbert",
-            "password" => "lovelove",
+            "username" => "webpage",
+            "password" => "loveepic",  //matthew1016
         ),
-    "BaseUrl" => "http://localhost//EpicAdmin/",
-    "Salt" => "41566a17c50a",
-    "UploadDir" => "C:\\EpicAdmin\\uploads\\",
-    "UploadUrl" => "http://localhost//EpicAdmin/uploads/",
-    "LogDir" => "C:\\EpicAdmin\\logs\\",
+    "BaseUrl" => "http://admin.epicscouts.org/",
+    "Salt" => "41566a17c50a", 
+    "UploadDir" => "/var/www/html/uploads/",
+    "UploadUrl" => "http://admin.epicscouts.org/uploads/",
+    "LogDir" => "/var/www/logs/",
     "TimeZone" => "America/Los_Angeles",
-    "ServerName" => "Dals Development Computer",
-    "DevBypass" => "dal"
+    "ServerName" => "Admin.EpicScouts.Org"
 );
-
+ 
+ 
 //     Error reporting.
 ini_set("error_reporting", "true");
 error_reporting(E_ALL|E_STRCT);

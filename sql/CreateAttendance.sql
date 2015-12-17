@@ -3,7 +3,7 @@
 */
 
 Use EpicAdmin;
-drop Table EventTimes;
+/*drop Table EventTimes;*/
 create Table EventTimes
 (
    Name char(40),         /* Usually an abbrivation of the date of the meeting */
@@ -13,7 +13,7 @@ create Table EventTimes
    Purpose char(100)      /* Description about the event */
 );
 
-drop Table RawScans;
+/*drop Table RawScans;*/
 create Table RawScans
 (
 	BadgeID char(4),    /* Should be in the form of 'a000' */
