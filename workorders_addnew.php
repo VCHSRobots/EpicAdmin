@@ -138,7 +138,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST")
 		log_msg($loc,
        array("New Work Order added!  Work Order Name =" . $WorkOrderName  . " id = " . $WorkOrderID));
 
-        $success_msg = 'Work Order "' . $_POST["WorkOrderName"] . '"' . $Priority . 'ID ' . $WorkOrderID . ' successfully added.';
+        $success_msg = 'Work Order "' . $_POST["WorkOrderName"] . '"' . ' ID ' . $WorkOrderID . ' successfully added.';
         //foreach($param_list as &$param_spec) { unset($param_spec["Value"]); }
 
        // $error_msg = true;

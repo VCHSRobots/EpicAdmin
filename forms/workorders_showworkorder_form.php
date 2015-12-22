@@ -99,29 +99,67 @@ echo '<div class="badges_paramvalue">Completed On:</div>';
 echo '<div class="badges_paramvalue">' . $CompletedOn . '</div>';
 echo '</div>';
 /*
-echo '<div class="badges_paramlabel">Quantity:</div>';
+echo '<div class="badges_paramvalue">Quantity:</div>';
 echo '<div class="badges_paramvalue">' . $quantity . '</div>';
-
-echo '<div class="badges_paramlabel">Description:</div>';
-echo '<div class="badges_paramvalue">' . $description . '</div>';
-
-echo '<div class="badges_paramlabel">Unit Price:</div>';
-echo '<div class="badges_paramvalue">' . $unitprice . '</div>';
-
-echo '<div class="badges_paramlabel">Prerequisite ID:</div>';
-echo '<div class="badges_params_link">';
-echo '<a href="workorders_showworkorder.php?WorkOrderID=' . $prerequisiteid . '">' . $prerequisitename . '</a>';
 */
-
 echo '<div class="badges_param_div">';
-echo ' <div class="badges_paramvalue">Description:</div>';
+echo '<div class="badges_paramvalue">Description:</div>';
 echo '<div class="badges_paramvalue">' . $Description . '</div>';
 echo '</div>';
 
+/*
+echo '<div class="badges_paramvalue">Unit Price:</div>';
+echo '<div class="badges_paramvalue">' . $unitprice . '</div>';
+*/
+echo '<div class="badges_param_div">';
+echo '<div class="badges_paramvalue">Prerequisite ID:</div>';
+echo '<div class="workorders_params_link">';
+echo '<a href="workorders_showworkorder.php?WorkOrderID=' . $PrereqID . '">' . $PrereqID . '</a>';
+echo '</div>';
+
+echo '</div>';
+
+
+echo '<form method = "post" action = "workorders_markcompleted.php">';
+$sql = 'SELECT completed FROM WorkOrders WHERE WorkOrderID = "' . $WorkOrderID . '"';
+$result = SqlQuery($loc, $sql);
+if ($result->num_rows > 0) {
+$row = $result->fetch_assoc();
+$completed = $row["completed"];
+if($completed == 0){
+echo '<div class="badges_paramvalue">Is This Work Order Completed?</div>';
+echo '<input type="checkbox" name="completed" value="Yes" />';
+echo '<input type="submit" name="formSubmit" value="Submit" />';
+}
+}
+
+
+echo '<div class="content_area">';
+//echo '<form action= "workorders_selectipt.php" method="post">';
+echo '<form action= "workorders_setworker.php" method="post">';
+/*
+echo "Requesting IPT group: <select name=\"RequestingIPTGroup\">";
+echo "<option value=\"ceo\">CEO</option>";
+echo "<option value=\"cad\">CAD</option>";
+echo "<option value=\"design\">Design</option>";
+echo "<option value=\"elect\">Electronics</option>";
+echo "<option value=\"3d\">3D Printing</option>";
+echo "<option value=\"bus\">Business</option>";
+echo "<option value=\"log\">Logistics</option>";
+echo "<option value=\"strat\">Strategy / Systems</option>";
+echo "<option value=\"web\">Web / Media</option>";
+echo "<option value=\"safety\">Safety</option>";
+echo "<option value=\"it\">IT</option>";
+echo "<br>";
+echo "<input type=\"submit\" value=\"Submit\">";
+*/
+
+
 echo "What student do you want to assign this to?";
 echo "<select  name=\"AssignedTo\"> <!-- This will include a list of all un-completed workorders in the database -->";
-echo '<form method = "post" action = "workorders_setworker.php">';
+//echo '<form method = "post" action = "workorders_setworker.php">';
 //echo '<form method = "post" action = "workorders_markcompleted.php">';
+//echo '<form action= "workorders_selectipt.php" method="post">';
 
 $sql = 'SELECT LastName, FirstName, UserID from Users';
 $result = SqlQuery($loc, $sql);
@@ -132,7 +170,7 @@ if ($result->num_rows > 0)
          $firstname = $row["FirstName"];
 	 $lastname = $row["LastName"];
 	 $userid = $row["UserID"];
-        $_SESSION["UserID"] = $userid; 
+	//echo '<option value=\"$userid\">' .$firstname.' '. $lastname. '</option>';
 	echo '<option value=\"$userid\">' .$firstname.' '. $lastname. '</option>';
         }
 }
@@ -141,21 +179,8 @@ else{
 echo "No users currently exist.";
 }
 echo "</select> ";
-echo '<input type="submit" name="formSubmit" value="Submit" />';
+echo "<input type=\"submit\" value=\"Submit\">";
 
-//echo '<input type="submit" name="formSubmit" value="Submit" />';
-echo '<form method = "post" action = "workorders_markcompleted.php">';
-$sql = 'SELECT completed FROM WorkOrders WHERE WorkOrderID = "' . $WorkOrderID . '"';
-$result = SqlQuery($loc, $sql);
-if ($result->num_rows > 0) {
-$row = $result->fetch_assoc();
-$completed = $row["completed"];
-if($completed == 0){
-echo '<div class="badges_paramvalue">Is This Work Order Completed?</div>';
-echo '<input type="checkbox" name="completed" value="Yes" />';
-//echo '<input type="submit" name="formSubmit" value="Submit" />';
-}
-}
 
 echo '</div' . "\n";
 ?>

@@ -5,7 +5,7 @@ Use EpicAdmin;
 create Table WorkOrders (
    WorkOrderID int AUTO_INCREMENT PRIMARY KEY,
    WorkOrderName varchar(40) NOT NULL UNIQUE,
-   Description varchar(500),
+   Description text,
    DateRequested DATE,
    DateNeeded date,
    Priority varchar(10),

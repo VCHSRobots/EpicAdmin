@@ -144,6 +144,10 @@ p {font-size: 14pt; font: Arial, Univers, sans-serif; padding: 5px; margin-right
 .badges_pic {width: 65px; height: auto; border: 1px; border-style: solid; border-color: black;}
 .badges_pic img {width: 65px; height: auto; }
 .badges_badgelabel{ font-size: 8pt; }
+/* ------------ For workorders_showworkorder_form.php */
+.workorders_listdiv   {display: block; height: 25px;}
+.workorders_listtitle {float: left; font-size: 12pt; color: #999999; width: 90px; height: 25px; }
+.workorders_list_value {float: left; font-size: 14pt; font-weight: bold; color: black; margin-left: 0px; margin-right: 20px; height: 25px;}
 
 /* ------------ For renderlib.php, and the auto generated forms. */
 

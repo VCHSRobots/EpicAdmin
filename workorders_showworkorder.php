@@ -29,7 +29,7 @@ if( $_SERVER["REQUEST_METHOD"] == "GET")
     if($data === false) DieWithMsg($loc, 'Work Order with ID=' . $WorkOrderID . ' not found.');
     $WorkOrderID  = $data["WorkOrderID"];
     $WorkOrderName = $data["WorkOrderName"];
-    $Description = $data["Description"];
+    //$Description = $data["Description"];
     $DateRequested  = $data["DateRequested"];
     $DateNeeded  = $data["DateNeeded"];
     $DayEstimate = $data["DayEstimate"];
@@ -46,6 +46,19 @@ if( $_SERVER["REQUEST_METHOD"] == "GET")
     $AssignedTo = $data["AssignedTo"];
     $Completed = $data["Completed"];
     $CompletedOn  = $data["CompletedOn"];
+	
+	$data = GetWorkOrderTasksInfo($WorkOrderID);
+    if($data === false) DieWithMsg($loc, 'Work Order Task with ID=' . $WorkOrderID . ' not found.');
+    $TaskID  = $data["TaskID"];
+    $Quantity = $data["Quantity"];
+    $Description = $data["Description"];
+    $UnitPrice  = $data["UnitPrice"];
+	
+	$data = GetWorkOrderPrereqInfo($WorkOrderID);
+    if($data === false) DieWithMsg($loc, 'Work Order Prerequisite for ID=' . $WorkOrderID . ' not found.');
+    $PrereqID  = $data["PrereqID"];
+    $PrevWorkOrderID = $data["PrevWorkOrderID"];
+
 }
 
 GenerateHtml:
