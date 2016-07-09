@@ -17,5 +17,4 @@ require_once "libs/piclib.php";
 require_once "libs/renderlib.php";
 require_once "libs/badgelib.php";
 require_once "libs/readerlib.php";
-require_once "libs/workorderlib.php";
 ?>

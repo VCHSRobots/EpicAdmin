@@ -131,6 +131,7 @@ function GetLastDayForAttendance()
     $prefs = GetPrefsForUser(0);
     if(isset($prefs["LastDay"]))
     {
+	print "prefs";
         $r = strtotime($prefs["LastDay"]);
         if($r === false) {return date("Y-m-d"); }
         return $prefs["LastDay"];
@@ -191,6 +192,7 @@ function AttendanceScoreForEvent($segs, $event, $show)
     $score["Present"] = $p;
     $score["Hours"] = ($h / 3600.0);
     if($c) $score["Correction"] = $c;
+    if  ($score["Hours"] > 0.001) $score["Present"] =  true;
     return $score;
 }
 
